@@ -1,0 +1,10 @@
+<div class="widgets">
+
+  <div class="row">
+    <ba-card title="店铺列表" baCardClass="with-scroll">
+      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"  (userRowSelect)="onSelect($event)"></ng2-smart-table>
+    </ba-card>
+  </div>
+<modals></modals>
+</div>
+
