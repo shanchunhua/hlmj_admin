@@ -1,0 +1,29 @@
+<ba-card title="产品列表" baCardClass="with-scroll table-panel">
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>产品名称</th>
+                <th>市场价</th>
+                <th>销售价</th>
+                <th>图片</th>
+                <th>是否上架</th>
+                <th>操作</th>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.marketPrice}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.image}}</td>
+                <td>{{item.onSale}}</td>
+                <td>
+                    <a routerLink="{{item.id}}" routerLinkActive="active">
+                        <button class="btn btn-primary  btn-sm">上架</button>
+                    </a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</ba-card>

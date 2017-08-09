@@ -114,7 +114,7 @@ export const PAGES_MENU = [{
           title: 'Grid',
         }
       }
-    }, ]
+    },]
   }, {
     path: 'forms',
     data: {
@@ -202,6 +202,84 @@ export const PAGES_MENU = [{
       data: {
         menu: {
           title: '店铺管理',
+        }
+      }
+    }]
+  }, {
+    path: 'hennery',
+    data: {
+      menu: {
+        title: '牧家管理',
+        icon: 'ion-grid',
+        selected: false,
+        expanded: false,
+        order: 500,
+      }
+    },
+    children: [{
+      path: 'hennery',
+      data: {
+        menu: {
+          title: '牧家列表',
+        }
+      }
+    }]
+  }, {
+    path: 'product',
+    data: {
+      menu: {
+        title: '产品管理',
+        icon: 'ion-ios-location-outline',
+        selected: false,
+        expanded: false,
+        order: 600,
+      }
+    },
+    children: [{
+      path: 'selection',
+      data: {
+        menu: {
+          title: '精选产品',
+        }
+      }
+    }, {
+      path: 'steal',
+      data: {
+        menu: {
+          title: '偷盗产品',
+        }
+      }
+    }]
+  }, {
+    path: 'orders',
+    data: {
+      menu: {
+        title: '订单管理',
+        icon: 'ion-ios-location-outline',
+        selected: false,
+        expanded: false,
+        order: 600,
+      }
+    },
+    children: [{
+      path: 'cockAdoptionOrders',
+      data: {
+        menu: {
+          title: '领养订单',
+        }
+      }
+    }, {
+      path: 'henRentalOrders',
+      data: {
+        menu: {
+          title: '租借订单',
+        }
+      }
+    }, {
+      path: 'shippingOrders',
+      data: {
+        menu: {
+          title: '快递订单',
         }
       }
     }]

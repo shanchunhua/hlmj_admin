@@ -1,0 +1,28 @@
+<ba-card title="牧家列表" baCardClass="with-scroll table-panel">
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>名称</th>
+                <th>看门狗</th>
+                <th>地址</th>
+                <th>是否推荐</th>
+                <th>操作</th>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td>{{item.id}}</td>
+                <td>{{item.ownerName}}</td>
+                <td>{{item.dogName}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.recommended?'是':'否'}}</td>
+                <td>
+                    <button class="btn btn-primary  btn-sm"  *ngIf="!item.recommended">推荐</button>
+                     <a routerLink="{{item.id}}" routerLinkActive="active">
+                        <button class="btn btn-primary  btn-sm">编辑</button>
+                    </a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</ba-card>

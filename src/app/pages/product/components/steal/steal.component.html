@@ -1,0 +1,35 @@
+<ba-card baCardClass="with-scroll table-panel">
+    <div style="float:right">
+         <a routerLink="0" routerLinkActive="active">
+        <button class="btn btn-primary">新增</button>
+         </a>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>产品名称</th>
+                <th>最低价</th>
+                <th>最高价</th>
+                <th>偷盗概率</th>
+                <th>当前偷盗产品</th>
+                <th>操作</th>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.lowerPrice}}</td>
+                <td>{{item.upperPrice}}</td>
+                <td>{{item.winningRate}}%</td>
+                <td>{{item.enabled?'是':'否'}}</td>
+                <td>
+                    <button class="btn btn-primary  btn-sm" *ngIf="!item.enabled" (click)="enable(item.id)">设为偷盗产品</button>
+                    <a routerLink="{{item.id}}" routerLinkActive="active">
+                        <button class="btn btn-primary">编辑</button>
+                    </a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</ba-card>

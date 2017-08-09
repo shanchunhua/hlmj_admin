@@ -1,0 +1,47 @@
+<form class="form-horizontal">
+    <div class="form-group row">
+        <label for="name" class="col-sm-2 form-control-label">产品名称</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="name" placeholder="产品名称" [(ngModel)]="product.name" name="name">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="lowerPrice" class="col-sm-2 form-control-label">产品最低价</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="price" placeholder="产品最低价" [(ngModel)]="product.lowerPrice" name="lowerPrice">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="upperPrice" class="col-sm-2 form-control-label">产品最高价</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="upperPrice" placeholder="产品最高价" [(ngModel)]="product.upperPrice" name="upperPrice">
+        </div>
+    </div>
+        <div class="form-group row">
+        <label for="winningRate" class="col-sm-2 form-control-label">偷盗成功率（百分比）</label>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" id="winningRate" placeholder="偷盗成功率（百分比）" [(ngModel)]="product.winningRate" name="winningRate" max="100">
+        </div>
+    </div>
+    <!--
+    <div class="row">
+        <label for="picture" class="col-sm-2 form-control-label">产品图片</label>
+        <div class="col-md-6">
+            <ba-card title="点击图标上传图片" baCardClass="with-scroll">
+                <ba-picture-uploader [picture]="product.image" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions" (onUpload)="handleUpload($event)"></ba-picture-uploader>
+            </ba-card>
+        </div>
+    </div>
+    -->
+    <div class="form-group row">
+        <label for="enabled" class="col-sm-2 form-control-label">是否设为偷盗产品？</label>
+        <div class="col-sm-6">
+            <ba-checkbox [(ngModel)]="product.enabled" [label]="'设置为偷盗产品？'" name="enabled"></ba-checkbox>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+            <button type="submit" class="btn btn-primary"(click)="save()">保存</button>
+        </div>
+    </div>
+</form>
