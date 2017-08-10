@@ -13,12 +13,13 @@ import { routing } from './order.routing';
 import { ShippingOrders } from './components/shippingOrders/shippingOrders.component';
 import { ShippingOrderService } from './components/shippingOrders/shippingOrder.service'
 import { CockAdoptionOrderComponent } from './components/cock-adoption/cock-adoption.component';
-
+import { MomentModule } from 'angular2-moment';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     NgaModule,
+    MomentModule,
     ModalModule.forRoot(),
     routing
   ],

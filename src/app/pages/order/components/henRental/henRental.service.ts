@@ -1,3 +1,4 @@
+import { Constants } from './../../../../../constants';
 import { HenRentalOrder } from './../../model/hen-rental-order';
 import { RestResult } from './../../../../rest-result';
 import { Injectable } from '@angular/core';
@@ -10,9 +11,9 @@ import 'rxjs/add/operator/catch';
 export class HenRentalService {
     constructor(private http: Http) { }
      getOrders(): Observable<RestResult<HenRentalOrder[]>> {
-    //  var url = "https://www.huanlemujia.com/shippingOrder"
-    const url = "http://localhost:8080/henRentOrder";
-    return this.http.get(url).map(function (res: Response) {
+
+    const url =  Constants.API_ENDPOINT+"/henRentOrder/example";
+    return this.http.post(url,{paid:true}).map(function (res: Response) {
       return res.json() as RestResult<HenRentalOrder[]>;
     }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }

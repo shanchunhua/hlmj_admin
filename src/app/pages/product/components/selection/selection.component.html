@@ -16,10 +16,12 @@
                 <td>{{item.marketPrice}}</td>
                 <td>{{item.price}}</td>
                 <td>{{item.image}}</td>
-                <td>{{item.onSale}}</td>
+                <td>{{item.onSale?'是':'否'}}</td>
                 <td>
+                    <button class="btn btn-primary" *ngIf="!item.onSale">上架</button>
+                    <button class="btn btn-danger" *ngIf="item.onSale">下架</button>
                     <a routerLink="{{item.id}}" routerLinkActive="active">
-                        <button class="btn btn-primary  btn-sm">上架</button>
+                        <button class="btn btn-primary">编辑</button>
                     </a>
                 </td>
             </tr>
