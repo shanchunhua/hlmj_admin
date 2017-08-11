@@ -11,7 +11,7 @@ export const PAGES_MENU = [{
         order: 0
       }
     }
-  }, {
+  }/*, {
     path: 'editors',
     data: {
       menu: {
@@ -205,7 +205,7 @@ export const PAGES_MENU = [{
         }
       }
     }]
-  }, {
+  }*/, {
     path: 'hennery',
     data: {
       menu: {
@@ -283,7 +283,7 @@ export const PAGES_MENU = [{
         }
       }
     }]
-  }, {
+  }/*, {
     path: 'maps',
     data: {
       menu: {
@@ -397,5 +397,5 @@ export const PAGES_MENU = [{
         target: '_blank'
       }
     }
-  }]
+  }*/]
 }];
