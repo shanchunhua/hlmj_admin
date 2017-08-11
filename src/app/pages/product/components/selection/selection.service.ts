@@ -5,10 +5,11 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { InterceptorService } from "ng2-interceptors";
 
 @Injectable()
 export class SelectionService {
-    constructor(private http: Http) { }
+    constructor(private http: InterceptorService) { }
     load(): Observable<RestResult<Selection[]>> {
         const url = "http://localhost:8080/collectionGoods";
         return this.http.get(url).map(function (res: Response) {

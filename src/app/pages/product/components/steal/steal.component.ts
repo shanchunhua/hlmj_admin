@@ -1,3 +1,4 @@
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { RestResult } from './../../../../rest-result';
 import { Steal } from './../../model/steal';
 import { StealService } from './steal.service';
@@ -10,12 +11,14 @@ import { Component, OnInit } from '@angular/core';
 
 export class StealComponent implements OnInit {
     items: Steal[];
-    constructor(private service: StealService) {
+    constructor(private service: StealService,private slimLoadingBarService: SlimLoadingBarService) {
 
     }
     load() {
+        this.slimLoadingBarService.start();
         this.service.load().subscribe((res: RestResult<Steal[]>) => {
             this.items = res.data;
+              this.slimLoadingBarService.complete();
         })
     }
     enable(id:string){

@@ -11,7 +11,7 @@ import { ProductComponent } from './product.component';
 import { routing } from './product.routing';
 import { SelectionComponent } from './components/selection/selection.component';
 import { NgModule } from '@angular/core';
-
+import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 
 
 @NgModule({
@@ -20,6 +20,7 @@ import { NgModule } from '@angular/core';
         FormsModule,
         NgaModule,
         ModalModule.forRoot(),
+         SlimLoadingBarModule.forRoot(),
         routing],
     exports: [],
     declarations: [ProductComponent, SelectionComponent,SelectionEditComponent,StealComponent,StealEditComponent],

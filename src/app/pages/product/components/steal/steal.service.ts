@@ -1,3 +1,4 @@
+import { InterceptorService } from 'ng2-interceptors';
 import { Observable } from 'rxjs/Rx';
 
 import { Constants } from './../../../../../constants';
@@ -10,7 +11,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class StealService {
-    constructor(private http: Http) { }
+    constructor(private http: InterceptorService) { }
     load(): Observable<RestResult<Steal[]>> {
         const url = Constants.API_ENDPOINT + '/goodsForSteal';
         return this.http.get(url).map(function (res: Response) {
