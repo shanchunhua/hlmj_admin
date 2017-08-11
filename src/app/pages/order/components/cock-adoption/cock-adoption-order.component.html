@@ -1,5 +1,5 @@
 <ba-card title="订单列表" baCardClass="with-scroll table-panel">
-  <div class="table-responsive" style="width:1800px;">
+  <div class="table-responsive">
     <table class="table">
       <tr>
         <th>#</th>
@@ -9,27 +9,23 @@
         <th>商品单价</th>
         <th>商品数量</th>
         <th>订单金额</th>
-        <th>收货人</th>
-        <th>收货地址</th>
-        <th>联系电话</th>
-        <th>快递公司</th>
-        <th>快递单号</th>
+        <th>牧家</th>
+        <th>转让数量</th>
+        <th>收回数量</th>
         <th>操作</th>
       </tr>
       <tr *ngFor="let item of items">
         <td>{{item.id}}</td>
         <td>{{item.orderNo}}</td>
-        <td>{{item.createdTime}}</td>
+        <td>{{item.createdTime| amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}</td>
         <td>{{item.customer.nickName}}</td>
         <td>{{item.price}}</td>
         <td>{{item.quantity}}</td>
         <td>{{item.total}}</td>
-        <td>{{item.contact}}</td>
-        <td>{{item.address}}</td>
-        <td>{{item.tel}}</td>
-        <td>{{item.expressCompany}}</td>
-        <td>{{item.expressNo}}</td>
-        <td><button class="btn btn-primary  btn-sm">录入快递信息</button></td>
+        <td>{{item.hennery.ownerName}}</td>
+        <td>{{item.transferQuantity}}</td>
+        <td>{{item.withdrawQuantity}}</td>
+        <td></td>
       </tr>
 
     </table>

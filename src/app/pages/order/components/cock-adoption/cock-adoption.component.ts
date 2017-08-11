@@ -1,3 +1,6 @@
+import { RestResult } from './../../../../rest-result';
+import { CockAdoptionService } from './cock-adoption.service';
+import { CockAdoption } from './../../model/cock-adoption';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CockAdoptionOrderComponent implements OnInit {
-    constructor() { }
+    items:CockAdoption[];
+    constructor(private service:CockAdoptionService) { }
 
-    ngOnInit() { }
+    ngOnInit() {this.load(); }
+    load(){
+        this.service.load().subscribe((res:RestResult<CockAdoption[]>)=>{
+            this.items=res.data;
+        });
+    }
 }
