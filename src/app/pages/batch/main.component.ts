@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'batch',
+  selector: 'main',
   template: `<router-outlet></router-outlet>`
 })
 export class MainComponent implements OnInit {
