@@ -31,6 +31,7 @@ export const routes: Routes = [
       { path: 'maps', loadChildren: 'app/pages/maps/maps.module#MapsModule' },
       { path: 'product', loadChildren: 'app/pages/product/product.module#ProductModule' },
       { path: 'hennery', loadChildren: 'app/pages/hennery/main.module#MainModule' },
+      { path: 'batch', loadChildren: 'app/pages/batch/main.module#MainModule' },
       { path: 'orders', loadChildren: 'app/pages/order/order.module#OrderModule' }
     ]
   }

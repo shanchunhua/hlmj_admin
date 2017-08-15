@@ -225,6 +225,25 @@ export const PAGES_MENU = [{
       }
     }]
   }, {
+    path: 'batch',
+    data: {
+      menu: {
+        title: '批次管理',
+        icon: 'ion-grid',
+        selected: false,
+        expanded: false,
+        order: 500,
+      }
+    },
+    children: [{
+      path: 'batch',
+      data: {
+        menu: {
+          title: '批次列表',
+        }
+      }
+    }]
+  }, {
     path: 'product',
     data: {
       menu: {

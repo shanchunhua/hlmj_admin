@@ -1,0 +1,36 @@
+<ba-card title="产品列表" baCardClass="with-scroll table-panel">
+        <div style="float:right">
+         <a routerLink="0" routerLinkActive="active">
+        <button class="btn btn-primary">新增</button>
+         </a>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>投放时间</th>
+                <th>投放数量</th>
+                <th>领养单价</th>
+                <th>饲养周期</th>
+                <th>剩余数量</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td>{{item.id}}</td>
+                <td>{{item.createdTime|amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.duration}}</td>
+                <td>{{item.leftQuantity}}</td>
+                <td>{{item.status}}</td>
+                <td>
+                    <a routerLink="{{item.id}}" routerLinkActive="active">
+                        <button class="btn btn-primary">编辑</button>
+                    </a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</ba-card>
