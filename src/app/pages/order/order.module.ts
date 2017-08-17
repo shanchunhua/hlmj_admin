@@ -1,3 +1,4 @@
+import { OrderTypePipe } from './components/shippingOrders/order-type.pipe';
 import { CockAdoptionService } from './components/cock-adoption/cock-adoption.service';
 import { HenRentalService } from './components/henRental/henRental.service';
 import { HenRentalComponent } from './components/henRental/henRental.component';
@@ -28,7 +29,8 @@ import { MomentModule } from 'angular2-moment';
     Order,
     ShippingOrders,
     CockAdoptionOrderComponent,
-    HenRentalComponent
+    HenRentalComponent,
+    OrderTypePipe
   ],
   providers: [
     ShippingOrderService,

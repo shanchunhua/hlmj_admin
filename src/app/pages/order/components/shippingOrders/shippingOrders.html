@@ -1,11 +1,13 @@
 <ba-card title="订单列表" baCardClass="with-scroll table-panel">
-  <div class="table-responsive" style="width:1800px;">
+  <div class="table-responsive" style="width:2000px;">
     <table class="table">
       <tr>
         <th>#</th>
         <th>订单编号</th>
         <th>订单日期</th>
         <th>客户昵称</th>
+        <th>商品类型</th>
+        <th>商品名称</th>
         <th>商品单价</th>
         <th>商品数量</th>
         <th>订单金额</th>
@@ -21,6 +23,9 @@
         <td>{{item.orderNo}}</td>
         <td>{{item.createdTime| amLocal | amDateFormat: 'YYYY-MM-DD HH:mm'}}</td>
         <td>{{item.customer.nickName}}</td>
+        <td>{{item.goodsType|orderType}}</td>
+        <td *ngIf="item.collectionGoods">{{item.collectionGoods.name}}</td>
+        <td *ngIf="!item.collectionGoods"></td>
         <td>{{item.price}}</td>
         <td>{{item.quantity}}</td>
         <td>{{item.total}}</td>
@@ -37,7 +42,8 @@
 </ba-card>
 
 <!-- Small modal -->
-<div bsModal #shippingModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div bsModal #shippingModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
@@ -47,20 +53,20 @@
         <h4 class="modal-title">录入快递信息</h4>
       </div>
       <div class="modal-body">
-       <form class="form-horizontal">
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 form-control-label">快递公司</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3" placeholder="快递公司" [(ngModel)]="currentOrder.expressCompany" name="expressCompany">
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 form-control-label">快递单号</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="快递单号"  [(ngModel)]="currentOrder.expressNo" name="expressNo">
-    </div>
-  </div>
-</form>
+        <form class="form-horizontal">
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 form-control-label">快递公司</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputEmail3" placeholder="快递公司" [(ngModel)]="currentOrder.expressCompany" name="expressCompany">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 form-control-label">快递单号</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="快递单号" [(ngModel)]="currentOrder.expressNo" name="expressNo">
+            </div>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary confirm-btn" (click)="save()">保存</button>
