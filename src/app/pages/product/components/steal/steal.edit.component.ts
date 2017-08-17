@@ -1,8 +1,10 @@
+import { Constants } from './../../../../../constants';
+import { NgUploaderOptions } from 'ngx-uploader';
 import { StealService } from './steal.service';
 import { RestResult } from './../../../../rest-result';
 import { Steal } from './../../model/steal';
 import { Params, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone, Inject } from '@angular/core';
 
 @Component({
     selector: 'steal-edit',
@@ -11,7 +13,13 @@ import { Component, OnInit } from '@angular/core';
 
 export class StealEditComponent implements OnInit {
     product: Steal = new Steal();
-    constructor(private route: ActivatedRoute, private service: StealService) { }
+    public defaultPicture = 'assets/img/theme/no-photo.png';
+    response: any;
+    public uploaderOptions: NgUploaderOptions = {
+        // url: 'http://website.com/upload'
+        url: Constants.API_ENDPOINT + '/fileupload',
+    };
+    constructor( @Inject(NgZone) private zone: NgZone, private route: ActivatedRoute, private service: StealService) { }
 
     ngOnInit() {
         this.route.params.subscribe(
@@ -22,6 +30,18 @@ export class StealEditComponent implements OnInit {
                         (res: RestResult<Steal>) => this.product = res.data)
                 }
             });
+    }
+    handleUpload(data) {
+        setTimeout(() => {
+            this.zone.run(() => {
+                this.response = data;
+                if (data && data.response) {
+                    this.response = JSON.parse(data.response);
+                    console.log(this.response);
+                    this.product.image = this.response.data;
+                }
+            });
+        });
     }
     save() {
         this.service.save(this.product).subscribe((res: RestResult<any>) => {

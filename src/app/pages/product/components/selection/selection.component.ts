@@ -1,3 +1,4 @@
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { Selection } from './../../model/selection';
 import { RestResult } from './../../../../rest-result';
 import { SelectionService } from './selection.service';

@@ -1,0 +1,25 @@
+<form class="form-horizontal">
+    <div class="form-group row">
+        <label for="quantity" class="col-sm-2 form-control-label">投放数量</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="quantity" placeholder="投放数量" [(ngModel)]="batch.quantity" name="quantity">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="lowerPrice" class="col-sm-2 form-control-label">领养单价</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="price" placeholder="领养单价" [(ngModel)]="batch.price" name="price">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="duration" class="col-sm-2 form-control-label">饲养周期</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="duration" placeholder="饲养周期" [(ngModel)]="batch.duration" name="duration">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+            <button type="submit" class="btn btn-primary"(click)="save()">保存</button>
+        </div>
+    </div>
+</form>

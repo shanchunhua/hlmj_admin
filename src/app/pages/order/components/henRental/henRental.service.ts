@@ -1,3 +1,4 @@
+import { InterceptorService } from 'ng2-interceptors';
 import { Constants } from './../../../../../constants';
 import { HenRentalOrder } from './../../model/hen-rental-order';
 import { RestResult } from './../../../../rest-result';
@@ -9,7 +10,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class HenRentalService {
-    constructor(private http: Http) { }
+    constructor(private http: InterceptorService) { }
      getOrders(): Observable<RestResult<HenRentalOrder[]>> {
 
     const url =  Constants.API_ENDPOINT+"/henRentOrder/example";

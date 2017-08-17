@@ -16,5 +16,16 @@ export class BatchService {
             return res.json() as RestResult<Batch[]>;
         }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
-
+    get(id: string): Observable<RestResult<Batch>> {
+        const url = Constants.API_ENDPOINT + '/cockRaisingBatch/' + id;
+        return this.http.get(url).map(function (res: Response) {
+            return res.json() as RestResult<Batch>;
+        }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+    save(item): Observable<RestResult<any>> {
+        const url = Constants.API_ENDPOINT + '/cockRaisingBatch';
+        return this.http.post(url, item).map(function (res: Response) {
+            return res.json() as RestResult<Batch>;
+        }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
 }

@@ -1,3 +1,5 @@
+import { LoadingMaskService } from './components/loadingMask/loading-mask.service';
+import { LoadingMaskComponent } from './components/loadingMask/loadingMask.component';
 import { NgModule, ModuleWithProviders }      from '@angular/core';
 import { CommonModule }  from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -26,7 +28,7 @@ import {
   BaMultiCheckbox,
   BaPageTop,
   BaPictureUploader,
-  BaSidebar
+  BaSidebar,
 } from './components';
 
 import { BaCardBlur } from './components/baCard/baCardBlur.directive';
@@ -69,7 +71,8 @@ const NGA_COMPONENTS = [
   BaMultiCheckbox,
   BaPageTop,
   BaPictureUploader,
-  BaSidebar
+  BaSidebar,
+  LoadingMaskComponent
 ];
 
 const NGA_DIRECTIVES = [
@@ -89,7 +92,8 @@ const NGA_SERVICES = [
   BaImageLoaderService,
   BaThemePreloader,
   BaThemeSpinner,
-  BaMenuService
+  BaMenuService,
+  LoadingMaskService
 ];
 
 const NGA_VALIDATORS = [

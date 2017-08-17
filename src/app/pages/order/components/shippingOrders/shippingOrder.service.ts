@@ -1,3 +1,4 @@
+import { InterceptorService } from 'ng2-interceptors';
 import { ShippingOrder } from './../../model/shipping-order';
 import { RestResult } from './../../../../rest-result';
 import { Injectable } from '@angular/core';
@@ -8,7 +9,7 @@ import { Constants } from "../../../../../constants";
 
 @Injectable()
 export class ShippingOrderService {
-  constructor(private http: Http) { }
+  constructor(private http: InterceptorService) { }
   getOrders(): Observable<RestResult<ShippingOrder[]>> {
     const url = Constants.API_ENDPOINT+"/shippingOrder/example";
     return this.http.post(url,{
