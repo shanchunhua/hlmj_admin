@@ -10,7 +10,10 @@ import { ShippingOrderService } from './shippingOrder.service'
 })
 export class ShippingOrders {
   @ViewChild('shippingModal') shippingModal: ModalDirective;
+  @ViewChild('orderItemModal') orderItemModal: ModalDirective;
+
   items: ShippingOrder[];
+  orderId: number=1;
   currentOrder: ShippingOrder = new ShippingOrder();
   constructor(private shippingOrderService: ShippingOrderService) {
   }
@@ -25,6 +28,11 @@ export class ShippingOrders {
   showShippingModal(order: ShippingOrder): void {
     this.currentOrder = order;
     this.shippingModal.show();
+  }
+  showOrderItemModal(id: number): void {
+    console.log(id);
+    this.orderId = id;
+    this.orderItemModal.show();
   }
   save(): void {
     console.log(this.currentOrder);

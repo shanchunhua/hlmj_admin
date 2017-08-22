@@ -1,5 +1,5 @@
 <ba-card title="订单列表" baCardClass="with-scroll table-panel">
-  <div class="table-responsive" style="width:2000px;">
+  <div class="table-responsive" style="width:2200px;">
     <table class="table">
       <tr>
         <th>#</th>
@@ -34,12 +34,30 @@
         <td>{{item.tel}}</td>
         <td>{{item.expressCompany}}</td>
         <td>{{item.expressNo}}</td>
-        <td><button class="btn btn-primary  btn-sm" (click)="showShippingModal(item)">录入快递信息</button></td>
+        <td><button class="btn btn-primary" (click)="showShippingModal(item)">录入快递信息</button>
+          <button class="btn btn-primary" (click)="showOrderItemModal(item.id)">查看随单货物</button></td>
       </tr>
 
     </table>
   </div>
 </ba-card>
+
+<div bsModal #orderItemModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" aria-label="Close" (click)="orderItemModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">查看随单货物</h4>
+      </div>
+      <div class="modal-body">
+        <order-item [orderId]="orderId"></order-item>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Small modal -->
 <div bsModal #shippingModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
