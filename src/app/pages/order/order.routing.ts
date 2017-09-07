@@ -1,3 +1,4 @@
+import { StealOrderComponent } from './components/steal/steal-order.component';
 import { HenRentalComponent } from './components/henRental/henRental.component';
 
 import { Routes, RouterModule }  from '@angular/router';
@@ -13,7 +14,8 @@ const routes: Routes = [
     children: [
       { path: 'shippingOrders', component: ShippingOrders },
       {path:'cockAdoptionOrders',component:CockAdoptionOrderComponent},
-      {path:'henRentalOrders',component:HenRentalComponent}
+      {path:'henRentalOrders',component:HenRentalComponent},
+       {path:'stealOrders',component:StealOrderComponent}
     ]
   }
 ];

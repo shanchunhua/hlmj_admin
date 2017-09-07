@@ -3,7 +3,7 @@ import { NgUploaderOptions } from 'ngx-uploader';
 import { StealService } from './steal.service';
 import { RestResult } from './../../../../rest-result';
 import { Steal } from './../../model/steal';
-import { Params, ActivatedRoute } from '@angular/router';
+import { Params, ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit, NgZone, Inject } from '@angular/core';
 
 @Component({
@@ -19,7 +19,7 @@ export class StealEditComponent implements OnInit {
         // url: 'http://website.com/upload'
         url: Constants.API_ENDPOINT + '/fileupload',
     };
-    constructor( @Inject(NgZone) private zone: NgZone, private route: ActivatedRoute, private service: StealService) { }
+    constructor( @Inject(NgZone) private zone: NgZone, private route: ActivatedRoute, private router: Router, private service: StealService) { }
 
     ngOnInit() {
         this.route.params.subscribe(
@@ -45,7 +45,7 @@ export class StealEditComponent implements OnInit {
     }
     save() {
         this.service.save(this.product).subscribe((res: RestResult<any>) => {
-
+            this.router.navigate(['/pages/product/steal']);
         });
     }
 }

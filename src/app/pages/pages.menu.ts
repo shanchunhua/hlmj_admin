@@ -301,6 +301,13 @@ export const PAGES_MENU = [{
           title: '快递订单',
         }
       }
+    }, {
+      path: 'stealOrders',
+      data: {
+        menu: {
+          title: '偷盗订单',
+        }
+      }
     }]
   }/*, {
     path: 'maps',

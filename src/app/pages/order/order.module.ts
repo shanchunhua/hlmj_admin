@@ -1,3 +1,5 @@
+import { StealOrderService } from './components/steal/steal-order.service';
+import { StealOrderComponent } from './components/steal/steal-order.component';
 import { OrderItemComponent } from './components/shippingOrders/order-item.component';
 import { OrderTypePipe } from './components/shippingOrders/order-type.pipe';
 import { CockAdoptionService } from './components/cock-adoption/cock-adoption.service';
@@ -32,12 +34,14 @@ import { MomentModule } from 'angular2-moment';
     CockAdoptionOrderComponent,
     HenRentalComponent,
     OrderItemComponent,
-    OrderTypePipe
+    OrderTypePipe,
+    StealOrderComponent
   ],
   providers: [
     ShippingOrderService,
     HenRentalService,
-    CockAdoptionService
+    CockAdoptionService,
+    StealOrderService
   ]
 })
 export class OrderModule { }

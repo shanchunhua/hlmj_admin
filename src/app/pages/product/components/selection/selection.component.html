@@ -1,4 +1,9 @@
-<ba-card title="产品列表" baCardClass="with-scroll table-panel">
+<ba-card baCardClass="with-scroll table-panel">
+        <div style="float:right">
+         <a routerLink="0" routerLinkActive="active">
+        <button class="btn btn-primary">新增</button>
+         </a>
+    </div>
     <div class="table-responsive">
         <table class="table">
             <tr>
@@ -18,8 +23,8 @@
                 <td>{{item.image}}</td>
                 <td>{{item.onSale?'是':'否'}}</td>
                 <td>
-                    <button class="btn btn-primary" *ngIf="!item.onSale">上架</button>
-                    <button class="btn btn-danger" *ngIf="item.onSale">下架</button>
+                    <button class="btn btn-primary" *ngIf="!item.onSale" (click)="toggleOnSale(item)">上架</button>
+                    <button class="btn btn-danger" *ngIf="item.onSale" (click)="toggleOnSale(item)">下架</button>
                     <a routerLink="{{item.id}}" routerLinkActive="active">
                         <button class="btn btn-primary">编辑</button>
                     </a>

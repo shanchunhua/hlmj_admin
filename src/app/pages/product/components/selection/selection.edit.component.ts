@@ -1,6 +1,6 @@
 import { RestResult } from './../../../../rest-result';
 import { SelectionService } from './selection.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgUploaderOptions } from 'ngx-uploader';
 import { Selection } from './../../model/selection';
 import 'rxjs/add/operator/switchMap';
@@ -19,30 +19,50 @@ export class SelectionEditComponent implements OnInit {
         // url: 'http://website.com/upload'
         url: 'http://localhost:8080/fileupload',
     };
-    constructor( @Inject(NgZone) private zone: NgZone, private route: ActivatedRoute, private service: SelectionService) { }
+    constructor( @Inject(NgZone) private zone: NgZone, private route: ActivatedRoute, private router: Router, private service: SelectionService) { }
 
     ngOnInit() {
-        this.route.params.switchMap(
-            (params: Params) => this.service.get(params['id'])).subscribe(
-            (res: RestResult<Selection>) => this.product = res.data);
+        this.route.params.subscribe(
+            (params: Params) => {
+                let id = params['id'];
+                if (id != 0) {
+                    this.service.get(id).subscribe(
+                        (res: RestResult<Selection>) => this.product = res.data);
+                }
+            });
     }
 
 
     handleUpload(data) {
+        console.log(data);
         setTimeout(() => {
             this.zone.run(() => {
                 this.response = data;
                 if (data && data.response) {
                     this.response = JSON.parse(data.response);
+                    console.log(this.response);
                     this.product.image = this.response.data;
+                }
+            });
+        });
+    }
+    handleUpload2(data) {
+        console.log(data);
+        setTimeout(() => {
+            this.zone.run(() => {
+                this.response = data;
+                if (data && data.response) {
+                    this.response = JSON.parse(data.response);
+                    console.log(this.response);
+                    this.product.description = this.response.data;
                 }
             });
         });
     }
     save() {
         console.log(this.product);
-        this.service.save(this.product).subscribe((res:RestResult<any>)=>{
-            console.log(res);
+        this.service.save(this.product).subscribe((res: RestResult<any>) => {
+            this.router.navigate(['/pages/product/selection']);
         });
     }
 }

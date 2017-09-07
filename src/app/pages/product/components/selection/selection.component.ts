@@ -11,10 +11,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class SelectionComponent implements OnInit {
     constructor(private selectionSerivce: SelectionService) { }
-    items:Selection[];
+    items: Selection[];
     ngOnInit() {
-        this.selectionSerivce.load().subscribe((res:RestResult<Selection[]>)=>{
-            this.items=res.data;
+        this.load();
+    }
+    load() {
+        this.selectionSerivce.load().subscribe((res: RestResult<Selection[]>) => {
+            this.items = res.data;
         });
-     }
+    }
+    toggleOnSale(item: Selection) {
+        item.onSale = !item.onSale;
+        this.selectionSerivce.save(item).subscribe((res) => {
+            this.load();
+        })
+    }
 }
