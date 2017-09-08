@@ -1,3 +1,4 @@
+import { AppSettings } from './../../../../app.config';
 import { RestResult } from './../../../../rest-result';
 import { SelectionService } from './selection.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -17,7 +18,9 @@ export class SelectionEditComponent implements OnInit {
     response: any;
     public uploaderOptions: NgUploaderOptions = {
         // url: 'http://website.com/upload'
-        url: 'http://localhost:8080/fileupload',
+        url: AppSettings.API_ENDPOINT + '/fileupload',
+        autoUpload: true,
+        calculateSpeed: true
     };
     constructor( @Inject(NgZone) private zone: NgZone, private route: ActivatedRoute, private router: Router, private service: SelectionService) { }
 
