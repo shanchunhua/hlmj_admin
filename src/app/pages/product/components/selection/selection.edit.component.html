@@ -21,7 +21,7 @@
         <label for="picture" class="col-sm-2 form-control-label">产品图片</label>
         <div class="col-md-6">
             <ba-card title="点击图标上传图片" baCardClass="with-scroll">
-                <ba-picture-uploader [picture]="product.image" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions" (onUpload)="handleUpload($event)"></ba-picture-uploader>
+                <ba-picture-uploader [picture]="product.image" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions" (onUploadCompleted)="handleUpload($event)"></ba-picture-uploader>
             </ba-card>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <label for="picture" class="col-sm-2 form-control-label">产品详情</label>
         <div class="col-md-6">
             <ba-card title="点击图标上传图片" baCardClass="with-scroll">
-                <ba-picture-uploader [picture]="product.description" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions" (onUpload)="handleUpload2($event)"></ba-picture-uploader>
+                <ba-picture-uploader [picture]="product.description" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions" (onUploadCompleted)="handleUpload2($event)"></ba-picture-uploader>
             </ba-card>
         </div>
     </div>

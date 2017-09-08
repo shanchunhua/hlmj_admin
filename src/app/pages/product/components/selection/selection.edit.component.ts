@@ -1,3 +1,4 @@
+import { Constants } from './../../../../../constants';
 import { AppSettings } from './../../../../app.config';
 import { RestResult } from './../../../../rest-result';
 import { SelectionService } from './selection.service';
@@ -18,7 +19,7 @@ export class SelectionEditComponent implements OnInit {
     response: any;
     public uploaderOptions: NgUploaderOptions = {
         // url: 'http://website.com/upload'
-        url: AppSettings.API_ENDPOINT + '/fileupload',
+        url: Constants.API_ENDPOINT + '/fileupload',
         autoUpload: true,
         calculateSpeed: true
     };
