@@ -1,3 +1,4 @@
+import { AuthGuard } from './../auth-guard.service';
 import { Routes, RouterModule } from '@angular/router';
 import { Pages } from './pages.component';
 import { ModuleWithProviders } from '@angular/core';
@@ -17,6 +18,7 @@ export const routes: Routes = [
   {
     path: 'pages',
     component: Pages,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', loadChildren: 'app/pages/dashboard/dashboard.module#DashboardModule' },

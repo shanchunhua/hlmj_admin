@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie';
 import {Component} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 
@@ -14,7 +16,7 @@ export class Login {
   public password:AbstractControl;
   public submitted:boolean = false;
 
-  constructor(fb:FormBuilder) {
+  constructor(fb:FormBuilder,private cookieService:CookieService,private route:Router) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
@@ -25,7 +27,9 @@ export class Login {
   }
 
   public onSubmit(values:Object):void {
+    this.cookieService.put("account","someone");
     this.submitted = true;
+    this.route.navigate(['/pages/dashboard']);
     if (this.form.valid) {
       // your code goes here
       // console.log(values);

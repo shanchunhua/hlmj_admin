@@ -28,7 +28,7 @@ export class ShippingOrderService {
     }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
   save(order: ShippingOrder): Observable<RestResult<any>> {
-    const url =  Constants.API_ENDPOINT+"/shippingOrder";
+    const url =  Constants.API_ENDPOINT+"/shippingOrder/logistics";
     return this.http.post(url, order).map(function (res: Response) {
       return res.json() as RestResult<any>;
     }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
