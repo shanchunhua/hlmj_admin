@@ -34,7 +34,8 @@ export const routes: Routes = [
       { path: 'product', loadChildren: 'app/pages/product/product.module#ProductModule' },
       { path: 'hennery', loadChildren: 'app/pages/hennery/main.module#MainModule' },
       { path: 'batch', loadChildren: 'app/pages/batch/main.module#MainModule' },
-      { path: 'orders', loadChildren: 'app/pages/order/order.module#OrderModule' }
+      { path: 'orders', loadChildren: 'app/pages/order/order.module#OrderModule' },
+      { path: 'customer', loadChildren: 'app/pages/customer/main.module#MainModule' }
     ]
   }
 ];

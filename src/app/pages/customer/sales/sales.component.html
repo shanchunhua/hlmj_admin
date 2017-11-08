@@ -1,0 +1,25 @@
+<ba-card baCardClass="with-scroll table-panel">
+<div class="table-responsive">
+  <table class="table">
+      <tr>
+          <th>#</th>
+          <th>姓名</th>
+          <th>电话</th>
+          <th>描述</th>
+          <th>状态</th>
+          <th>操作</th>
+      </tr>
+      <tr *ngFor="let item of items">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.tel}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.status}}</td>
+          <td>
+              <button class="btn btn-primary"  (click)="approve(item)" *ngIf="item.status=='APPLYING'">审核通过</button>
+          </td>
+      </tr>
+
+  </table>
+</div>
+</ba-card>

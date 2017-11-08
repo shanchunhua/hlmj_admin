@@ -1,3 +1,5 @@
+import { PartnerComponent } from './partner/partner.component';
+import { SalesComponent } from './sales/sales.component';
 import { CustomerComponent } from './customer.component';
 import { MainComponent } from './main.component';
 import { NgModule } from '@angular/core';
@@ -9,7 +11,9 @@ const routes: Routes = [
     path: '',
     component: MainComponent,
     children: [
-      { path: '', component: CustomerComponent }
+      { path: 'customer', component: CustomerComponent },
+      { path: 'sales', component: SalesComponent },
+      { path: 'partner', component: PartnerComponent }
     ]
   }
 ];

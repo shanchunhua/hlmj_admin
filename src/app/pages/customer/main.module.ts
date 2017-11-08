@@ -1,3 +1,4 @@
+import { CustomerService } from './customer.service';
 import { CustomerComponent } from './customer.component';
 import { MainComponent } from './main.component';
 import { enableDebugTools } from '@angular/platform-browser';
@@ -7,6 +8,8 @@ import { NgaModule } from './../../theme/nga.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { PartnerComponent } from './partner/partner.component';
+import { SalesComponent } from './sales/sales.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -15,7 +18,10 @@ import { NgModule } from '@angular/core';
         ModalModule.forRoot(),
         routing],
     exports: [],
-    declarations: [MainComponent,CustomerComponent],
-    providers: [],
+    declarations: [MainComponent, CustomerComponent,
+        PartnerComponent,
+        SalesComponent
+    ],
+    providers: [CustomerService],
 })
 export class MainModule { }

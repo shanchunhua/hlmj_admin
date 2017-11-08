@@ -309,6 +309,32 @@ export const PAGES_MENU = [{
         }
       }
     }]
+  }, {
+    path: 'customer',
+    data: {
+      menu: {
+        title: '客户管理',
+        icon: 'ion-grid',
+        selected: false,
+        expanded: false,
+        order: 500,
+      }
+    },
+    children: [{
+      path: 'sales',
+      data: {
+        menu: {
+          title: '品鉴师管理',
+        }
+      }
+    }, {
+      path: 'partner',
+      data: {
+        menu: {
+          title: '合伙人管理',
+        }
+      }
+    }]
   }/*, {
     path: 'maps',
     data: {
