@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { PartnerComponent } from './partner/partner.component';
 import { SalesComponent } from './sales/sales.component';
+import { PartnerSalesComponent } from './partner-sales/partner-sales.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -20,8 +21,9 @@ import { SalesComponent } from './sales/sales.component';
     exports: [],
     declarations: [MainComponent, CustomerComponent,
         PartnerComponent,
-        SalesComponent
-    ],
+        SalesComponent,
+    PartnerSalesComponent
+],
     providers: [CustomerService],
 })
 export class MainModule { }

@@ -321,6 +321,13 @@ export const PAGES_MENU = [{
       }
     },
     children: [{
+      path: 'customer',
+      data: {
+        menu: {
+          title: '客户管理',
+        }
+      }
+    },{
       path: 'sales',
       data: {
         menu: {
@@ -332,6 +339,13 @@ export const PAGES_MENU = [{
       data: {
         menu: {
           title: '合伙人管理',
+        }
+      }
+    }, {
+      path: 'partnersales',
+      data: {
+        menu: {
+          title: '分销员管理',
         }
       }
     }]
