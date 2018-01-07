@@ -25,7 +25,12 @@ export class CustomerService {
             return res.json() as RestResult<any>;
         }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
-
+    loadCustomers(): Observable<RestResult<any[]>> {
+        const url = Constants.API_ENDPOINT + "/customer";
+        return this.http.get(url).map(function (res: Response) {
+            return res.json() as RestResult<any[]>;
+        }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
     loadPartner(): Observable<RestResult<any[]>> {
         const url = Constants.API_ENDPOINT + "/partner";
         return this.http.get(url).map(function (res: Response) {

@@ -1,3 +1,4 @@
+import { PartnerSalesComponent } from './partner-sales/partner-sales.component';
 import { PartnerComponent } from './partner/partner.component';
 import { SalesComponent } from './sales/sales.component';
 import { CustomerComponent } from './customer.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
     children: [
       { path: 'customer', component: CustomerComponent },
       { path: 'sales', component: SalesComponent },
-      { path: 'partner', component: PartnerComponent }
+      { path: 'partner', component: PartnerComponent },
+      { path: 'partnersales', component: PartnerSalesComponent }
     ]
   }
 ];

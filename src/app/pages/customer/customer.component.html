@@ -1,0 +1,29 @@
+<ba-card baCardClass="with-scroll table-panel">
+    <div class="table-responsive">
+      <table class="table">
+          <tr>
+              <th>#</th>
+              <th>头像</th>
+              <th>昵称</th>
+              <th>性别</th>
+              <th>城市</th>
+              <th>省</th>
+              <th>推荐人</th>
+              <th>操作</th>
+          </tr>
+          <tr *ngFor="let item of items">
+              <td>{{item.id}}</td>
+              <td><div class="message-icon"><img src="{{item.avatarUrl}}" class="photo-icon"/></div></td>
+              <td>{{item.nickName}}</td>
+              <td>{{item.gender| i18nSelect:genderMap}}</td>
+              <td>{{item.city}}</td>
+              <td>{{item.province}}</td>
+              <td>{{item.parent?.nickName}}</td>
+              <td>
+                  <button class="btn btn-primary"  (click)="approve(item)" *ngIf="item.status=='APPLYING'">审核通过</button>
+              </td>
+          </tr>
+    
+      </table>
+    </div>
+    </ba-card>
