@@ -19,9 +19,9 @@ export class CustomerService {
         }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
     approveSales(item): Observable<RestResult<any>> {
-        const url = Constants.API_ENDPOINT + "/sales";
+        const url = Constants.API_ENDPOINT + "/gzh/sales/"+item.id+'/approve';
         item.status='APPROVED';
-        return this.http.put(url,item).map(function (res: Response) {
+        return this.http.get(url).map(function (res: Response) {
             return res.json() as RestResult<any>;
         }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
@@ -38,9 +38,10 @@ export class CustomerService {
         }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
     approvePartner(item): Observable<RestResult<any>> {
-        const url = Constants.API_ENDPOINT + "/partner";
+      //  const url = Constants.API_ENDPOINT + "/partner";
+      const url = Constants.API_ENDPOINT + "/gzh/partner/"+item.id+'/approve';
         item.status='APPROVED';
-        return this.http.put(url,item).map(function (res: Response) {
+        return this.http.get(url).map(function (res: Response) {
             return res.json() as RestResult<any>;
         }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
